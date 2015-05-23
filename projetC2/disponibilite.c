@@ -84,3 +84,60 @@ void maj_panneau(SDL_Renderer* ren, int nb_fleche[]){
     
     SDL_RenderPresent(ren);
 }
+int dispo(int lvl,int u){
+    int nb_fleche01[12]={0,2,0,1,0,1,0,0,0,0,0,0};
+    int nb_fleche02[12]={0,0,0,0,0,1,0,1,0,0,0,1};
+    int nb_fleche03[12]={0,0,0,0,0,0,0,1,1,1,0,0};
+    int b=0;
+    switch(lvl){
+        case (1):b=nb_fleche01[u];break;
+        case (2):b=nb_fleche02[u];break;
+        case (3):b=nb_fleche03[u];break;
+    }
+    return b;
+}
+int dispofleche(int lvl,int u,int i){
+    int b=0;
+    int d_on_tab01[10]={0,0,0,0,0,0,0,0,0,0};
+    int xcible01[10]={0,0,0,0,0,0,0,0,0,0};
+    int ycible01[10]={0,0,0,0,0,0,0,0,0,0};
+    int d_on_tab02[10]={2,0,0,0,0,0,0,0,0,0};
+    int xcible02[10]={535,0,0,0,0,0,0,0,0,0};
+    int ycible02[10]={135,0,0,0,0,0,0,0,0,0};
+    int d_on_tab03[10]={6,2,4,0,0,0,0,0,0,0};
+    int xcible03[10]={335,585,585,0,0,0,0,0,0,0};
+    int ycible03[10]={235,235,435,0,0,0,0,0,0,0};
+    switch(lvl){
+        case(1):if(i==0){
+                    b=d_on_tab01[u];
+                }else if(i==1){
+                    b=xcible01[u];
+                }else{
+                    b=ycible01[u];
+                }
+            break;
+        case(2):if(i==0){
+                    b=d_on_tab02[u];
+                }else if(i==1){
+                    b=xcible02[u];
+                }else{
+                    b=ycible02[u];
+                }
+            break; 
+        case(3):if(i==0){
+                    b=d_on_tab03[u];
+                }else if(i==1){
+                    b=xcible03[u];
+                }else{
+                    b=ycible03[u];
+                }
+            break;     
+    }
+    return b;
+}
+int nbdispo(int lvl){
+    int b=0;
+    int nbbb[11]={0,0,1,3,1,3,1,2,3,0,2};
+    b=nbbb[lvl];
+    return b;
+}
