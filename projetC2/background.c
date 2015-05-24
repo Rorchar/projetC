@@ -96,6 +96,7 @@ void carte(SDL_Renderer* ren, int map[][13],int Drapeau[]){
                 case(36):d = IMG_Load("IMG/coin_mer-terre1(.png");break;
                 case(37):d = IMG_Load("IMG/herbe-mer_7(.png");break;
                 case(38):d = IMG_Load("IMG/herbe-mer_1((.png");break;
+                case(39):d = IMG_Load("IMG/diago(5)(1).png");break;
             }
             SDL_Texture *texture  = SDL_CreateTextureFromSurface(ren,d);
             SDL_FreeSurface(d);

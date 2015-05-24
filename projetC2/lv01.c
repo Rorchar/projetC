@@ -44,10 +44,9 @@ int main(){
     int xcible[10];
     int ycible[10];
     int d_on_tab[10];
-    
-    //Nombre de fleche posée
-    int nb=0;
 
+    int o=0;
+    int u=0;
     //Element de la boucle de dessin
     int nbj;
 
@@ -68,7 +67,16 @@ int main(){
     //indice de l'arme
     int arm_on=0;
 
-    int lvl=1;
+    int lvl=8;
+
+    //Nombre de fleche posée
+    int nb=nbdispo(lvl);
+
+    for(u=0;u<10;u++){
+        d_on_tab[u]=dispofleche(lvl,u,0);
+        xcible[u]=dispofleche(lvl,u,1);
+        ycible[u]=dispofleche(lvl,u,2);
+    }
 
     //bouclier
     int bouclier=0;
@@ -76,19 +84,24 @@ int main(){
 
     first_components_of_the_background(ren);
     niv(lvl,ren);
-    int u=0;
     int nb_fleche[12];
     for(u=0;u<12;u++){
         nb_fleche[u]=dispo(lvl,u);
     }
     maj_panneau(ren,nb_fleche);
     
-    int ne=2;
+    int ne=4;
     int jj=0;
-    int xEnnemie[2]={PosE(lvl,0),PosE(lvl,3)};
-    int yEnnemie[2]={PosE(lvl,1),PosE(lvl,4)};
-    int setE[2]={PosE(lvl,2),PosE(lvl,5)};
-    int StatutE[2]={0,0};
+
+    int xEnnemie[4];
+    int yEnnemie[4];
+    int setE[4];
+    for(o=0;o<ne;o++){
+        xEnnemie[o] = PosE(lvl,3*o);
+        yEnnemie[o] = PosE(lvl,3*o+1);
+        setE[o]= PosE(lvl,3*o+2);
+    }
+    int StatutE[4]={0,0,0,0};
     for(jj=0;jj<ne;jj++){
         mvt_tank(ren, xEnnemie[jj],yEnnemie[jj],setE[jj], 0,bouclier);
     }
@@ -146,6 +159,7 @@ int main(){
                         arm_on=0;
                         nb=nbdispo(lvl);
                         na=0;
+                        bouclier=0;
                         mvt_tank(ren,x,y,set,1,bouclier);
                         SDL_RenderPresent(ren);
                     }
@@ -256,28 +270,33 @@ int main(){
                 action=0;
                 lvl++;
                 niv(lvl,ren);
+                printf("11111111\n");
                 x=Pos(lvl,0);
                 y=Pos(lvl,1);
+                printf("22222222\n");
                 set = Pos(lvl,2);
+                bouclier=0;
                 mvt_tank(ren,x,y,set,1,bouclier);
+                printf("aaaaaa\n");
                 for(o=0;o<ne;o++){
                     xEnnemie[o] = PosE(lvl,3*o);
                     yEnnemie[o] = PosE(lvl,3*o+1);
                     setE[o]= PosE(lvl,3*o+2);
                     mvt_tank(ren, xEnnemie[o],yEnnemie[o], setE[o], 0,bouclier);
-                    for(u=0;u<12;u++){
-                            nb_fleche[u]=dispo(lvl,u);
-                    }
-                    maj_panneau(ren,nb_fleche);
-                    for(u=0;u<10;u++){
-                        d_on_tab[u]=dispofleche(lvl,u,0);
-                        xcible[u]=dispofleche(lvl,u,1);
-                        ycible[u]=dispofleche(lvl,u,2);
-                    }
-                    nb=nbdispo(lvl);
-                    na=0;
-                    bouclier=0;
+                    StatutE[o]=0;
                 }
+                for(u=0;u<12;u++){
+                    nb_fleche[u]=dispo(lvl,u);
+                }
+                maj_panneau(ren,nb_fleche);
+                for(u=0;u<10;u++){
+                    d_on_tab[u]=dispofleche(lvl,u,0);
+                    xcible[u]=dispofleche(lvl,u,1);
+                    ycible[u]=dispofleche(lvl,u,2);
+                }
+                nb=nbdispo(lvl);
+                na=0;
+                
                 //SDL_ShowSimpleMessageBox(0, "WIN", "niv1 terminer ", window);
             }
 

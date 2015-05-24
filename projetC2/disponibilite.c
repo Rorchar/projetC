@@ -88,11 +88,21 @@ int dispo(int lvl,int u){
     int nb_fleche01[12]={0,2,0,1,0,1,0,0,0,0,0,0};
     int nb_fleche02[12]={0,0,0,0,0,1,0,1,0,0,0,1};
     int nb_fleche03[12]={0,0,0,0,0,0,0,1,1,1,0,0};
+    int nb_fleche04[12]={0,0,1,1,0,1,0,0,0,0,2,0};
+    int nb_fleche05[12]={0,1,0,0,0,0,0,1,1,0,1,0};
+    int nb_fleche06[12]={1,1,0,1,0,0,0,0,0,1,0,1};
+    int nb_fleche07[12]={1,0,0,1,0,0,0,1,0,0,1,0};
+    int nb_fleche08[12]={0,0,1,0,0,1,0,0,1,2,0,0};
     int b=0;
     switch(lvl){
         case (1):b=nb_fleche01[u];break;
         case (2):b=nb_fleche02[u];break;
         case (3):b=nb_fleche03[u];break;
+        case (4):b=nb_fleche04[u];break;
+        case (5):b=nb_fleche05[u];break;
+        case (6):b=nb_fleche06[u];break;
+        case (7):b=nb_fleche07[u];break;
+        case (8):b=nb_fleche08[u];break;
     }
     return b;
 }
@@ -107,6 +117,21 @@ int dispofleche(int lvl,int u,int i){
     int d_on_tab03[10]={6,2,4,0,0,0,0,0,0,0};
     int xcible03[10]={335,585,585,0,0,0,0,0,0,0};
     int ycible03[10]={235,235,435,0,0,0,0,0,0,0};
+    int d_on_tab04[10]={2,0,0,0,0,0,0,0,0,0};
+    int xcible04[10]={535,0,0,0,0,0,0,0,0,0};
+    int ycible04[10]={235,0,0,0,0,0,0,0,0,0};
+    int d_on_tab05[10]={4,4,0,0,0,0,0,0,0,0};
+    int xcible05[10]={635,535,0,0,0,0,0,0,0,0};
+    int ycible05[10]={285,185,0,0,0,0,0,0,0,0};
+    int d_on_tab06[10]={6,4,2,0,0,0,0,0,0,0};
+    int xcible06[10]={135,435,485,0,0,0,0,0,0,0};
+    int ycible06[10]={385,485,485,0,0,0,0,0,0,0};
+    int d_on_tab07[10]={0,0,0,0,0,0,0,0,0,0};
+    int xcible07[10]={0,0,0,0,0,0,0,0,0,0};
+    int ycible07[10]={0,0,0,0,0,0,0,0,0,0};
+    int d_on_tab08[10]={6,2,0,0,0,0,0,0,0,0};
+    int xcible08[10]={85,585,0,0,0,0,0,0,0,0};
+    int ycible08[10]={485,185,0,0,0,0,0,0,0,0};
     switch(lvl){
         case(1):if(i==0){
                     b=d_on_tab01[u];
@@ -131,13 +156,53 @@ int dispofleche(int lvl,int u,int i){
                 }else{
                     b=ycible03[u];
                 }
-            break;     
+            break; 
+        case(4):if(i==0){
+                    b=d_on_tab04[u];
+                }else if(i==1){
+                    b=xcible04[u];
+                }else{
+                    b=ycible04[u];
+                }
+            break;
+        case(5):if(i==0){
+                    b=d_on_tab05[u];
+                }else if(i==1){
+                    b=xcible05[u];
+                }else{
+                    b=ycible05[u];
+                }
+            break;
+        case(6):if(i==0){
+                    b=d_on_tab06[u];
+                }else if(i==1){
+                    b=xcible06[u];
+                }else{
+                    b=ycible06[u];
+                }
+            break;
+        case(7):if(i==0){
+                    b=d_on_tab07[u];
+                }else if(i==1){
+                    b=xcible07[u];
+                }else{
+                    b=ycible07[u];
+                }
+            break;
+        case(8):if(i==0){
+                    b=d_on_tab08[u];
+                }else if(i==1){
+                    b=xcible08[u];
+                }else{
+                    b=ycible08[u];
+                }
+            break;    
     }
     return b;
 }
 int nbdispo(int lvl){
     int b=0;
-    int nbbb[11]={0,0,1,3,1,3,1,2,3,0,2};
+    int nbbb[9]={0,0,1,3,1,2,3,0,2};
     b=nbbb[lvl];
     return b;
 }
