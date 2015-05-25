@@ -1,0 +1,3 @@
+gcc 13_04_2015.c -o 13_04_2015.h -Wall -lSDL2 -lSDL2_image
+
+//il y a des petits bugs au niveau de la fermeture de la fenetre
