@@ -77,7 +77,7 @@ void case_tir (SDL_Renderer *ren, int x, int y, int dd){
     SDL_Surface *d = NULL;
     switch(dd){
         case(1):d = IMG_Load("IMG/t1.png");break;
-        case(2):d = IMG_Load("IMG/t2.png");break;
+        case(2):d = IMG_Load("IMG/missile1.png");break;
         case(3):d = IMG_Load("IMG/t3.png");break;
     }
     texture = SDL_CreateTextureFromSurface(ren,d);

@@ -48,7 +48,7 @@ void maj_panneau(SDL_Renderer* ren, int nb_fleche[]){
     SDL_DestroyTexture(texture_t1f);
 
     SDL_Texture *texture_t2f = NULL;
-    SDL_Surface *tt2 = IMG_Load("IMG/t2f.png");
+    SDL_Surface *tt2 = IMG_Load("IMG/missile1.png");
     texture_t2f = SDL_CreateTextureFromSurface(ren, tt2);
     SDL_FreeSurface(tt2);
     SDL_Rect dst_t2f;

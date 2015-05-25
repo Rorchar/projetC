@@ -16,6 +16,8 @@ void mvt_tank(SDL_Renderer *ren, int x, int y, int orientation, int i,int boucli
         t = IMG_Load("IMG/tank1.png");
     }else if(i==1 && bouclier==1){
         t = IMG_Load("IMG/ennemie1.png");
+    }else if(i==2){
+        t = IMG_Load("IMG/t2.png");
     }else{
         t = IMG_Load("IMG/ennemie1.png");
     }
@@ -247,6 +249,28 @@ int PosE(int i,int a){
         case(6):b=PosE6[a];break;
         case(7):b=PosE7[a];break;
         case(8):b=PosE8[a];break;
+    }
+    return b;
+}
+int PosM(int i,int a){
+    int b=0;
+    int PosM1[9]={2000,2000,2000,2000,2000,2000};
+    int PosM2[9]={2000,2000,2000,2000,2000,2000};
+    int PosM3[9]={2000,2000,2000,2000,2000,2000};
+    int PosM4[9]={2000,2000,2000,2000,2000,2000};
+    int PosM5[9]={620,320,520,220,570,270};
+    int PosM6[9]={2000,2000,2000,2000,2000,2000};
+    int PosM7[9]={2000,2000,2000,2000,2000,2000};
+    int PosM8[9]={2000,2000,2000,2000,2000,2000};
+    switch(i){
+        case(1):b=PosM1[a];break;
+        case(2):b=PosM2[a];break;
+        case(3):b=PosM3[a];break;
+        case(4):b=PosM4[a];break;
+        case(5):b=PosM5[a];break;
+        case(6):b=PosM6[a];break;
+        case(7):b=PosM7[a];break;
+        case(8):b=PosM8[a];break;
     }
     return b;
 }
